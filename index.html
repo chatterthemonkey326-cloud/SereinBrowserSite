@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serein - A Calmer Internet</title>
+    <link rel="stylesheet" href="styles67.css">
+</head>
+<body>
+    
+    <div class="startup-overlay" id="startupOverlay">
+        <svg class="startup-logo" id="animatedPath" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="logoGradient" x1="256" y1="129" x2="256" y2="359" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#0312BB"/>
+                    <stop offset="1" stop-color="#3E0E5D"/>
+                </linearGradient>
+            </defs>
+            <path id="drawPath" d="M133 297.409C173.627 212.038 302.971 200.417 366.84 141.762C369.327 139.478 373.476 142.169 371.945 145.179C329.66 228.286 224.545 238.725 183.647 311.443C154.706 360.562 219.823 374.596 277.706 339.511" fill="none" stroke="url(#logoGradient)" stroke-width="10" stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <main>
+        
+        <div class="hero">
+            <img class="logo" src="serein-icon.png" alt="Serein"/>
+            <h1>Serein</h1>
+            <p class="tagline">A browser that doesn't track you. No ads, no profiling, no distractions.</p>
+        </div>
+
+        
+        <section class="values">
+            <div class="value-row">
+                <div class="value-block">
+                    <div class="value-label">Private</div>
+                    <p>Your browsing data stays local. No trackers, no servers collecting profiles.</p>
+                </div>
+                <div class="value-block">
+                    <div class="value-label">Simple</div>
+                    <p>Clean interface. No clutter, no notifications fighting for attention.</p>
+                </div>
+                <div class="value-block">
+                    <div class="value-label">Fast</div>
+                    <p>Lightweight engine. Blocks what slows you down before it loads.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="how-it-works">
+            <h2>Getting started</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Download</h3>
+                        <p>Get Serein. Runs on Mac, Windows, and Linux.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Set as default</h3>
+                        <p>Make it your primary browser. Takes 30 seconds.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Browse</h3>
+                        <p>Everything else is automatic. Trackers blocked, data stays local.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="why-serein">
+            <h2>Why choose Serein</h2>
+            <div class="reason-list">
+                <div class="reason">
+                    <div class="reason-title">Your data shouldn't be a product</div>
+                    <p>Most browsers track every site you visit, every search, every click—then sell it. Serein keeps that data on your machine.</p>
+                </div>
+                <div class="reason">
+                    <div class="reason-title">Ads don't belong in the browser</div>
+                    <p>Tracking pixels, ad networks, behavioral profiling—blocked before they load. The web is faster and cleaner.</p>
+                </div>
+                <div class="reason">
+                    <div class="reason-title">Built for actual privacy</div>
+                    <p>Not marketing. Not a privacy theater. Actual privacy: open source, auditable, no servers collecting your activity.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="features">
+            <h2>What's included</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h4>Tracker blocking</h4>
+                    <p>Ads, analytics, profiling networks—all blocked before they connect.</p>
+                </div>
+                <div class="feature">
+                    <h4>Minimal UI</h4>
+                    <p>Address bar, tabs, settings. Nothing you don't need.</p>
+                </div>
+                <div class="feature">
+                    <h4>Fast rendering</h4>
+                    <p>No bloat. Pages load and respond quickly.</p>
+                </div>
+                <div class="feature">
+                    <h4>Open source</h4>
+                    <p>Code is public. Audit it, contribute to it, verify it yourself.</p>
+                </div>
+                <div class="feature">
+                    <h4>Local sync</h4>
+                    <p>Bookmarks and settings sync across devices. Everything stays encrypted locally.</p>
+                </div>
+                <div class="feature">
+                    <h4>Keyboard navigation</h4>
+                    <p>Tab through everything. No mouse needed unless you want it.</p>
+                </div>
+            </div>
+        </section>
+
+       
+
+        
+        <section class="call-to-action">
+            <h2>Get Serein</h2>
+            <button class="button button-primary">Download now</button>
+            <p class="cta-note">Free and open source. Always will be.</p>
+        </section>
+
+        <footer>
+            <p>Privacy by default.</p>
+        </footer>
+    </main>
+
+    <script>
+        
+        class StartupAnimation {
+            constructor() {
+                this.overlay = document.getElementById('startupOverlay');
+                this.svg = document.getElementById('animatedPath');
+                this.drawPath = document.getElementById('drawPath');
+                this.main = document.querySelector('main');
+                this.init();
+            }
+            
+            init() {
+                this.main.classList.add('hidden');
+                
+                // === Logo animation (faster: 800ms) ===
+                const pathLength = this.drawPath.getTotalLength();
+                this.drawPath.style.strokeDasharray = pathLength;
+                this.drawPath.style.strokeDashoffset = pathLength;
+                
+                // Draw path quickly
+                this.drawPath.animate(
+                    [
+                        { strokeDashoffset: pathLength },
+                        { strokeDashoffset: 0 }
+                    ],
+                    { duration: 800, easing: 'ease-out', fill: 'forwards' }
+                );
+                
+                // Scale down after drawing
+                setTimeout(() => {
+                    this.svg.animate(
+                        [
+                            { transform: 'scale(1)', opacity: 1 },
+                            { transform: 'scale(0.35)', opacity: 0 }
+                        ],
+                        { duration: 400, easing: 'ease-out', fill: 'forwards' }
+                    );
+                }, 700);
+                
+                // === Show content (total 1.2s) ===
+                setTimeout(() => {
+                    this.overlay.classList.add('fade-out');
+                    this.main.classList.remove('hidden');
+                    this.main.classList.add('show');
+                    
+                    // Stagger all content animations
+                    const elements = [
+                        { sel: '.hero', delay: 0 },
+                        { sel: '.values', delay: 80 },
+                        { sel: '.how-it-works', delay: 160 },
+                        { sel: '.why-serein', delay: 240 },
+                        { sel: '.features', delay: 320 },
+                        { sel: '.hall-of-shame-link', delay: 400 },
+                        { sel: '.call-to-action', delay: 480 },
+                        { sel: 'footer', delay: 560 },
+                    ];
+                    
+                    elements.forEach(el => {
+                        setTimeout(() => {
+                            document.querySelectorAll(el.sel).forEach(elem => {
+                                elem.classList.add('show');
+                            });
+                        }, el.delay);
+                    });
+                }, 1200);
+                
+                // Hide overlay
+                setTimeout(() => {
+                    this.overlay.style.display = 'none';
+                }, 1800);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            new StartupAnimation();
+        });
+        
+    </script>
+</body>
+</html>
