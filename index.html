@@ -152,12 +152,11 @@
             init() {
                 this.main.classList.add('hidden');
                 
-                // === Logo animation (faster: 800ms) ===
                 const pathLength = this.drawPath.getTotalLength();
                 this.drawPath.style.strokeDasharray = pathLength;
                 this.drawPath.style.strokeDashoffset = pathLength;
                 
-                // Draw path quickly
+            
                 this.drawPath.animate(
                     [
                         { strokeDashoffset: pathLength },
